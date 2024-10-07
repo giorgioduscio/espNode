@@ -1,18 +1,19 @@
+// @ts-ignore
 const express =require('express')
-,     router =express.Router()
-,     users =require('./users')()
+,     router =express.Router() // @ts-ignore
+,     users =require('./users')
 ,     bcrypt =require('bcrypt')
 
-// console.log(users);
+
 
 
 // TODO GET
-router.get(`/`, (req,res)=>{
+router.get(`/`, (req:any, res:any)=>{
   res.status(200).json({success:true, data:users})
 })
-router.get(`/:id`, (req,res)=>{
+router.get(`/:id`, (req:any, res:any)=>{
   const {id} =req.params
-  ,     user =users.find(p=>p.id===id)
+  ,     user =users.find((user:any)=>user.id===id)
 
   res.status(200).json(user)
 })
@@ -23,13 +24,13 @@ router.get(`/:id`, (req,res)=>{
 router.use(express.json())
 router.use(express.urlencoded({extended:false}))
 
-router.post(`/`, (req,res)=>{
+router.post(`/`, (req:any, res:any)=>{
   const nuovaPersona =req.body
   users.push(nuovaPersona)
   res.status(200).json({success:true,data:users})
 })
 
-router.post('/crypt', async (req, res)=>{
+router.post('/crypt', async (req:any, res:any)=>{
   try {
     const salt =await bcrypt.genSalt(10)
     ,     hashedPassword =await bcrypt.hash(req.body.password, salt)
@@ -40,13 +41,13 @@ router.post('/crypt', async (req, res)=>{
     users.push(nuovaPersona)
     
     res.status(200).json({success:true,data:nuovaPersona})
-    hash('password')
+    // hash('password',{})
   } catch{ res.status(500).send() }
 })
 
-router.post('/login', async (req, res)=>{
+router.post('/login', async (req:any, res:any)=>{
   try {
-    const user =users.find(user=>user.name===req.body.name)
+    const user =users.find((user:any)=>user.name===req.body.name)
     if (user==null) return res.status(400).send('Utente non trovato')
     if (await bcrypt.compare(req.body.password, user.password)){
       res.send('success')
@@ -56,10 +57,10 @@ router.post('/login', async (req, res)=>{
 })
   
 // TODO PUT
-router.put('/:id', (req,res)=>{
+router.put('/:id', (req:any, res:any)=>{
   let {id} =req.params
   ,     updateUser =req.body
-  ,     index =users.findIndex( user=>user.id==id )
+  ,     index =users.findIndex( (user:any)=>user.id==id )
 
   if(index!=-1){
     users[index].name =updateUser.name
@@ -70,9 +71,9 @@ router.put('/:id', (req,res)=>{
 })
 
 // TODO DELETE
-router.delete('/:id', (req,res)=>{
+router.delete('/:id', (req:any, res:any)=>{
   const {id} =req.params
-  ,     index =users.findIndex( user=>user.id==id )
+  ,     index =users.findIndex( (user:any)=>user.id==id )
 
   if(index!=-1){
     users.splice(index,1)
