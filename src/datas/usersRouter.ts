@@ -1,6 +1,6 @@
 const expressDatas =require('express')
 ,     routerDatas =expressDatas.Router()
-,     usersDatas =require('./users')
+,     usersDatas :any =[]
 ,     bcrypt =require('bcrypt')
 
 // TODO GET

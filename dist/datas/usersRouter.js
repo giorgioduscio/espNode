@@ -8,7 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const expressDatas = require('express'), routerDatas = expressDatas.Router(), usersDatas = require('./users'), bcrypt = require('bcrypt');
+const expressDatas = require('express'), routerDatas = expressDatas.Router(), usersDatas = [], bcrypt = require('bcrypt');
 // TODO GET
 routerDatas.get(`/`, (req, res) => {
     res.status(200).json({ success: true, data: usersDatas });
