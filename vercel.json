@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package*.json",
+      "use": "@vercel/node",
+      "config": {
+        "runtime": "nodejs20.17.0", 
+        "includeFiles": ["dist/**"]
+      }
+    }
+  ]
+}
