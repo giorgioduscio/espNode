@@ -4,6 +4,7 @@ const directory ='C:/Users/Giorno Giovanna/Desktop/Programmazione/espNode/src/pa
 const routerPages =expressPages.Router()
 
 const routerToExecute =[
+  {urlPath:'/', filePath:directory +'home/home.html'},
   {urlPath:'/home', filePath:directory +'home/home.html'},
   {urlPath:'/about', filePath:directory +'about/about.html'},
 ]

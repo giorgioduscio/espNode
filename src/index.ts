@@ -6,7 +6,7 @@ const usersRouter =require('./datas/usersRouter')
 const studentsRouter =require('./datas/studentsRouter')
 const pagesRouter =require('./pages/pagesRouter')
 
-app.use('/',pagesRouter)
-app.use('/api/students',studentsRouter)
+app.use('/', pagesRouter)
+app.use('/api/students', studentsRouter)
 
 app.listen(port,()=> console.log(`http://localhost:${3000}\n\n`))

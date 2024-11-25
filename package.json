@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "./src/index.ts",
   "scripts": {
-    "start": "npx concurrently \"tsc --watch\" \"nodemon dist/index.js\""
+    "start": "npx concurrently \"tsc --watch\" \"nodemon dist/index.js\"",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
