@@ -1,5 +1,5 @@
-# GET http://localhost:3000/api/students/1
-# DELETE http://localhost:3000/api/students/6
+# GET http://localhost:3000/api/students
+# DELETE http://localhost:3000/api/students/8
 
 # POST http://localhost:3000/api/students
 # Content-Type: application/json
@@ -11,10 +11,12 @@
 #     "data_nascita": "12-12-12"
 # }
 
-# PUT http://localhost:3000/api/students/8
-# Content-Type: application/json
 
-# {
-#     "email": "modificata@gmail",
-#     "data_nascita": "10-10-10"
-# }
+
+PUT http://localhost:3000/api/students/1
+Content-Type: application/json
+
+{
+    "email": "update@gmail",
+    "data_nascita": "10-10-10"
+}

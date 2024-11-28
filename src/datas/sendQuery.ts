@@ -1,13 +1,12 @@
 const mysql =require('mysql2')
 
-module.exports =function functionQuery(
+module.exports =function sendQuery(
   config:mysqlConfiguration, 
   query:string, 
   callback:Function,
 ){
-  // TODO attivare database
-  const connection =mysql.createConnection(config)
-  
+  // TODO ricorda: prima occorre attivare il database
+  const connection =mysql.createConnection(config) 
   connection.connect((connectionError:any)=>{
     if(connectionError) throw connectionError
 
@@ -23,12 +22,3 @@ interface mysqlConfiguration{
   password:string,
   database:string,
 }
-
-/*
-sendQuery("
-    SELECT field
-    FROM table
-  ", (result)=> res.status(200).json( {success:true, data:result} )
-)
-
-*/
