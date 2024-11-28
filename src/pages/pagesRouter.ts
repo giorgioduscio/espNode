@@ -1,18 +1,17 @@
-const expressPages =require('express')
+// @ts-nocheck
+const express =require('express')
 const path =require('path')
-const directory ='C:/Users/Giorno Giovanna/Desktop/Programmazione/espNode/src/pages/'
-const routerPages =expressPages.Router()
+const router =express.Router()
+const routes =require('./routes')
 
-const routerToExecute =[
-  {urlPath:'/', filePath:directory +'home/home.html'},
-  {urlPath:'/home', filePath:directory +'home/home.html'},
-  {urlPath:'/about', filePath:directory +'about/about.html'},
-]
-
-routerToExecute.forEach(item=>{
-  routerPages.get(item.urlPath, (req:any, res:any) => {
-    res.sendFile(item.filePath);
+routes.forEach(item=>{
+  let htmlPath =path.join(__dirname, item.filePath +'.html')
+  let pugPath =path.join('C:/Users/Giorno Giovanna/Desktop/Programmazione/espNode/src/pages', item.filePath +'.pug')
+  let tsDatas =require('./' +item.filePath)  
+  
+  router.get(item.urlPath, (req:any, res:any) => {
+    res.render(pugPath, tsDatas)
   })
 })
 
-module.exports =routerPages
+module.exports =router

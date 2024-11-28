@@ -1,0 +1,17 @@
+$c1: #000
+$c2: #444
+$c3: #888
+$c4: #ccc
+$c5: #fff
+
+
+@mixin cover($imgUrl)
+  background: url($imgUrl) no-repeat center center
+  background-size: cover
+  padding: 10px
+  border: 1px solid
+   
+html, body
+  margin: 0
+  background: $c1
+  color: $c5

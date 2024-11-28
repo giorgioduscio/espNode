@@ -1,10 +1,11 @@
 {
-  "name": "aspNode",
+  "name": "espNode",
   "version": "1.0.0",
   "main": "./src/index.ts",
   "scripts": {
-    "start": "npx concurrently \"tsc --watch\" \"nodemon dist/index.js\"",
-    "build": "tsc"
+    "start": "npx concurrently \"nodemon dist/index.js\"",
+    "dev": "npx concurrently \"tsc --watch\" \"sass -w ./src \"",
+    "build": "tsc & sass ./src"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +15,7 @@
     "bcrypt": "^5.1.1",
     "express": "^4.21.0",
     "mysql2": "^3.11.4",
+    "pug-cli": "^1.0.0-alpha6",
     "typescript": "^5.6.2"
   },
   "devDependencies": {

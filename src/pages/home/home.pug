@@ -1,0 +1,40 @@
+mixin yearsOld(number)
+  if number<18
+    p Minorenne 
+  else if number<50
+    p Maggiorenne
+  else if number<80
+    p Mezza età
+  else 
+    p Anziano
+
+mixin isAdmin(role)
+  case role
+    when 'admin'
+      p 1- Benvenuto Admin
+    when 'user'
+      p 2- Benvenuto User
+    default
+      p Default
+
+doctype html 
+head 
+  title= title
+  link(rel="stylesheet", href="home.css")
+body 
+  include ../navbar/navbar
+  article 
+    #array 
+      h1 Array 
+      main 
+        each item, index in myArray 
+          input(checked=item id=index type="checkbox")
+          label(for=index)= item
+    #oggetto
+      h1 Oggetto 
+      main 
+        input(type="text" placeholder="Nome" value=myObject.name)
+        input(type="number" placeholder="Age" value=myObject.age)
+        +yearsOld(myObject.age)
+        +isAdmin(myObject.role)
+

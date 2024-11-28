@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-nocheck
 const express =require('express')
 const router =express.Router()
 const functionQuery =require('./functionQuery')
